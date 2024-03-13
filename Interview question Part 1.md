@@ -179,3 +179,119 @@ If you want to use the Undertow server in Spring boot application, first you mus
 </dependency>
 ```
 After adding Undertow in pom.xml then at build time it disables tomcat and maps to the Jetty configurations.
+
+#### Q12. How to run Spring Boot Project from command line?
+
+Answer:- To run a Spring Boot project from the command line, you typically use the mvn (Maven), depending on your build tool. Here are the general steps for running a Spring Boot project from the command line:
+
+#### Using java -jar command
+1. Navigate to the project directory: Open a terminal or command prompt and navigate to the root directory of your Spring Boot project.
+
+2. Build the project: If you haven't already built the project, you can use the following command to build it using Maven:
+    ``` 
+    mvn clean package
+    ```
+3. Go to target folder using cd target command    
+    
+4. Running an Executable JAR - 
+You can run it using the java command. Navigate to the directory containing the JAR file and use the following command:
+```
+java -jar your-application.jar
+```
+Replace your-application.jar with the actual name of your JAR file.
+
+#### Using Spring boot maven plugin (-mvn spring-boot:run)
+
+1. Ensure that your project has the Spring Boot Maven plugin configured in its pom.xml file. The plugin should be included with the spring-boot-maven-plugin groupId and artifactId.
+
+2. Open a terminal and navigate to the directory containing your project's pom.xml file.
+
+3. Run the following Maven command to start your Spring Boot application using the Maven plugin:
+```
+mvn spring-boot:run
+```
+5. Maven will build your project and start the embedded server with your application deployed. You should see log output indicating that the application has started.
+
+#### Q13. Describe the flow of REST API HTTP request through the Spring Boot project?
+
+Answer:- In a Spring Boot application, the 3-tier architecture can be implemented using the following approach:
+
+![image](https://github.com/honeysungra/springboot-interview-questions/assets/79264165/e4726645-971a-4706-aad3-177d2d111b59)
+
+1. Presentation Tier (UI Tier)/Controller : The presentation tier in a Spring Boot application typically consists of controllers or REST controllers that handle incoming HTTP requests and define the application's API endpoints.
+Controllers are responsible for processing user inputs, invoking the appropriate business logic, and returning the response to the client.
+
+2. Service Layer (Business Logic): This layer encapsulates the core functionalities and business logic of your application. It sits between the presentation and data access layers, receiving requests from the presentation layer and manipulating data retrieved from the data access layer.
+Service classes interact with repositories (data access objects) to retrieve and manipulate data from the database.
+Additionally, aspects such as logging, security, and transaction management can be implemented in this tier using Spring Boot's AOP (Aspect-Oriented Programming) features.
+
+3. Data Access Layer (Persistence): This layer is responsible for interacting with the persistence mechanism, which is typically a database. It handles data persistence (storing data), retrieval, updates, and deletions using the database's functionalities.
+Spring Boot provides features like JPA (Java Persistence API) and Spring Data repositories to simplify data access logic. These abstractions allow you to interact with the database using domain objects (POJOs) instead of writing raw SQL queries.
+
+#### Benefits of Three-Tier Architecture:
+
+Separation of Concerns: Each layer has a well-defined purpose, making the codebase easier to understand, maintain, and test.
+Loose Coupling: Changes in one layer don't necessarily require changes in other layers, promoting flexibility.
+** Reusability:** Business logic in the service layer can be reused across different presentation layers.
+Scalability: You can independently scale different tiers based on their needs.
+
+#### Q14. What Is Spring Boot DevTools used for?
+
+Answer:- Spring Boot DevTools is a set of tools designed to improve developer productivity when working on Spring Boot applications. It provides several features that help streamline the development process, including:
+1. Automatic Restart
+2. LiveReload
+3. Remote Development
+4. Additional Tools
+To include the DevTools, you just have to add the following dependency into the pom.xml file:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+</dependency>
+```
+
+#### Q15. How to Add Security to Spring Boot and Explain Security Auto Configuration?
+
+Answer:- To add security to a Spring Boot application, you can use the Spring Security framework, which provides comprehensive security features for Java applications. Here's how to add security to a Spring Boot application and an explanation of security auto-configuration:
+
+Add Spring Security Dependency: In your pom.xml (for Maven), add the following dependency for Spring Security:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+Here's what it does by default:
+
+Secures all Endpoints: All HTTP endpoints are secured, requiring user authentication for access.
+Default Login: A basic login form is enabled using HTTP Basic authentication. Spring Boot generates a random initial user with a password logged to the console.
+BCrypt Password Encoding: It uses a strong password hashing algorithm (BCrypt) to securely store passwords.
+
+Default username is user and password is generated on console. You can change the username, passwords and roles in application.properties file also.
+```xml 
+spring.security.user.name=honey
+spring.security.user.password=password
+spring.security.user.roles=ADMIN
+```
+
+#### Q16. what is logging.level.org.springframework.security=DEBUG used for in application.properties file?
+
+Answer:- Here's a breakdown of what each part does:
+
+-> logging.level: This is a common property prefix used for configuring logging levels in Spring Boot applications. 
+-> org.springframework.security: This specifies the logger name. In this case, it targets the entire Spring Security package.
+-> =DEBUG: This assigns the level DEBUG to the logger. DEBUG is a specific level in logging that captures very detailed information, including method calls, variable states, and other low-level details.
+
+Spring Security also offers other logging levels like INFO, WARN, and ERROR. You can adjust the level based on your needs. For example, INFO might be sufficient for general security operation monitoring.
+
+#### Q17. Have you used profiles in your Spring Boot project? Explain briefly
+
+Answer:- Profiles in Spring Boot allow you to define different configurations for different environments (e.g., development, testing, production) and activate them based on the environment in which the application is running. Profiles are defined using application-{profile}.properties or application-{profile}.yml files, where {profile} is the name of the profile.
+
+For example, you can have application-dev.properties for development settings, application-test.properties for testing settings, and application-prod.properties for production settings. You can also define common properties in application.properties that apply to all profiles.
+
+To activate a profile, you can use the spring.profiles.active property in your application.properties,y. For example, to activate the dev profile, you can use:
+
+```xml 
+spring.profiles.active=dev
+```
