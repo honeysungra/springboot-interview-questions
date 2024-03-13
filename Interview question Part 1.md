@@ -136,17 +136,17 @@ To use a specific embedded server in your Spring Boot application, you can inclu
 
 #### Q11. How to remove embedded tomcat server and enable jetty server/ undertow server?
 Answer:- Once we add spring-boot-starter-web dependency as part of pom.xml for web application development with spring boot, it gets the tomcat along with all required dependencies. 
-
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
-
+```
 #### Exclude Tomcat Server
 Now we will exclude the tomcat server for that we  just need to add an additional block to the Spring Boot Starter dependency. In the dependency section, We can add <exclusions> tags that make sure the given artifact is removed at build time.
 
 This is the easiest way to do it.
-
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
@@ -157,25 +157,25 @@ This is the easiest way to do it.
         </exclusion>
     </exclusions>
 </dependency>
-
+```
 You can use that approach to exclude Tomcat from Spring Boot and also for any other exclusions.
 
 #### To Add Jetty Server in Spring Boot - 
 If you want to use the Jetty server in Spring boot application, first you must need to disable the default tomcat server and then add jetty dependency “spring-boot-starter-jetty“.
-
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-jetty</artifactId> 
 </dependency>
-
+```
 After adding jetty in pom.xml then at build time it disables tomcat and maps to the Jetty configurations.
 
 #### Add Undertow Server in Spring Boot - 
 If you want to use the Undertow server in Spring boot application, first you must need to disable the default tomcat server and then add jetty dependency “spring-boot-starter-undertow“.
-
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-undertow</artifactId> 
 </dependency>
-
+```
 After adding Undertow in pom.xml then at build time it disables tomcat and maps to the Jetty configurations.
