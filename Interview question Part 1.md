@@ -2,19 +2,19 @@
 # Spring Boot Interview Question
 
 
-#### Q1. What is Spring Boot and mention the need for it?
+### Q1. What is Spring Boot and mention the need for it?
 
 Answer:- Spring boot is an open source spring module that aims to simplify the use of the Spring framework. It is used to create standalone Spring-based applications with minimal setup and configuration that you can just run.
 It basically removes a lot of configurations and dependencies, allowing developers to focus more on writing the application logic rather than dealing with infrastructure setup.
 
-#### Q2. What is the need for spring boot application?
+### Q2. What is the need for spring boot application?
 
 Answer:-  The need for Spring Boot arises from the complexity involved in setting up a Spring application. 
 Traditionally, developers had to configure various components such as data sources, application servers, and logging frameworks manually, which could be time-consuming and error-prone.
 Spring Boot streamlines this process by providing defaults for these configurations, making it easier to get started with Spring-based projects. 
 It also offers a range of features such as embedded servers, auto-configuration, and starter dependencies, which further simplify and accelerate the development process.
 
-#### Q3. Key features of Spring boot.
+### Q3. Key features of Spring boot.
 
 Answer:- Few important features of Spring Boot are as follows:
 
@@ -34,9 +34,9 @@ Answer:- Few important features of Spring Boot are as follows:
 
 #### 8. Embedded servlet container support: Spring Boot provides out-of-the-box support for embedded servlet containers like Tomcat, Jetty, and Undertow, making it easy to run web applications.
 
-#### Q4. Mention the advantages of Spring Boot?
+### Q4. Mention the advantages of Spring Boot?
 
-Spring Boot offers several advantages that make it a popular choice for developing Java applications:
+Answer:- Spring Boot offers several advantages that make it a popular choice for developing Java applications:
 
 #### 1. Simplified configuration: Spring Boot uses sensible defaults and provides auto-configuration, reducing the need for manual configuration and boilerplate code.
 
@@ -59,7 +59,7 @@ Spring Boot offers several advantages that make it a popular choice for developi
 #### 10. Easy deployment: With its embedded server and standalone JAR packaging, deploying Spring Boot applications is simple and can be done using standard deployment tools.
 
 
-#### Q5. How Spring Boot internally works or explain run() method in Spring Boot?
+### Q5. How Spring Boot internally works or explain run() method in Spring Boot?
 
 Answer:- The run() method in Spring Boot is the entry point for your application. It is typically used to bootstrap and start the Spring application.
 It's a static method provided by the SpringApplication class that you call from your application's main method.
@@ -74,7 +74,7 @@ public class MyApplication {
 In this example, the 'run()' method is called with the MyApplication class and the command-line arguments ('args') passed to the application. SpringApplication.run() is a static method that bootstraps and launches the Spring application.
 The run() method handles all the complex tasks of setting up the application context, loads beans, and starting the server, so you can focus on writing the business logic of your application.
 
-#### Q6. Explain how to create a Spring Boot application using Maven.
+### Q6. Explain how to create a Spring Boot application using Maven.
 
 Answer:- There are various approaches to create a Spring Boot application using maven, but if I have to name a few, then following are the ways to create a Spring Boot project/ application using maven:
 
@@ -83,7 +83,7 @@ Spring Starter Project Wizard
 Spring Initializr
 Spring Maven Project
 
-#### Q7. What does the @SpringBootApplication annotation do internally?
+### Q7. What does the @SpringBootApplication annotation do internally?
 
 Answer:- The @SpringBootApplication annotation is a convenience annotation in Spring Boot that adds all of the following:
 
@@ -107,7 +107,7 @@ Internally, when the @SpringBootApplication annotation is used, Spring Boot perf
 
 5. Runs the application: Starts the application, making it ready to handle requests and execute business logic.
 
-#### Q8. What is the starter dependency of the Spring boot module?
+### Q8. What is the starter dependency of the Spring boot module?
 
 Answer:- In Spring Boot, starter dependencies are a set of convenient dependency descriptors that you can include in your application to get a specific set of dependencies. Starter dependencies help you quickly set up and use common frameworks and libraries in your Spring Boot application.
 Here are some of the commonly used Spring Boot Starter dependencies:
@@ -117,14 +117,14 @@ Here are some of the commonly used Spring Boot Starter dependencies:
 3. spring-boot-starter-security: It is used for Spring Security. It is a powerful and customizable authentication and access-control framework.
 4. spring-boot-starter-test: It is used for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito.
 
-#### Q9. What is spring boot starter parent?
+### Q9. What is spring boot starter parent?
 
 Answer:- It's used to manage the versions of dependencies and plugins in your project, ensuring that they are all compatible with each other and with the Spring Boot version you are using.
 When you use spring-boot-starter-parent as the parent POM  (Project Object Model) for your project, you inherit its configuration, including the dependency management section. This means that you don't need to specify versions for most dependencies in your pom.xml file, as they are already managed by the parent POM.
 
 Additionally, spring-boot-starter-parent provides some useful plugins and configurations for building and packaging your Spring Boot application, such as the Spring Boot Maven plugin for running your application and creating executable JAR files.
 
-#### Q10. Explain types of Embedded Servers in Spring boot?
+### Q10. Explain types of Embedded Servers in Spring boot?
 Answer-: The types of embedded servers supported by Spring Boot include:
   1. Tomcat: Tomcat is a widely used embedded server for Java web applications. It is the default embedded server in Spring Boot and is well-suited for running servlet-based applications.
 
@@ -134,7 +134,7 @@ Answer-: The types of embedded servers supported by Spring Boot include:
 
 To use a specific embedded server in your Spring Boot application, you can include the corresponding starter dependency in your pom.xml (for Maven). For example, to use Tomcat as the embedded server, you would include the spring-boot-starter-tomcat dependency.
 
-#### Q11. How to remove embedded tomcat server and enable jetty server/ undertow server?
+### Q11. How to remove embedded tomcat server and enable jetty server/ undertow server?
 Answer:- Once we add spring-boot-starter-web dependency as part of pom.xml for web application development with spring boot, it gets the tomcat along with all required dependencies. 
 ```xml
 <dependency>
@@ -180,7 +180,7 @@ If you want to use the Undertow server in Spring boot application, first you mus
 ```
 After adding Undertow in pom.xml then at build time it disables tomcat and maps to the Jetty configurations.
 
-#### Q12. How to run Spring Boot Project from command line?
+### Q12. How to run Spring Boot Project from command line?
 
 Answer:- To run a Spring Boot project from the command line, you typically use the mvn (Maven), depending on your build tool. Here are the general steps for running a Spring Boot project from the command line:
 
@@ -212,7 +212,7 @@ mvn spring-boot:run
 ```
 5. Maven will build your project and start the embedded server with your application deployed. You should see log output indicating that the application has started.
 
-#### Q13. Describe the flow of REST API HTTP request through the Spring Boot project?
+### Q13. Describe the flow of REST API HTTP request through the Spring Boot project?
 
 Answer:- In a Spring Boot application, the 3-tier architecture can be implemented using the following approach:
 
@@ -235,7 +235,7 @@ Loose Coupling: Changes in one layer don't necessarily require changes in other 
 ** Reusability:** Business logic in the service layer can be reused across different presentation layers.
 Scalability: You can independently scale different tiers based on their needs.
 
-#### Q14. What Is Spring Boot DevTools used for?
+### Q14. What Is Spring Boot DevTools used for?
 
 Answer:- Spring Boot DevTools is a set of tools designed to improve developer productivity when working on Spring Boot applications. It provides several features that help streamline the development process, including:
 1. Automatic Restart
@@ -250,7 +250,7 @@ To include the DevTools, you just have to add the following dependency into the 
 </dependency>
 ```
 
-#### Q15. How to Add Security to Spring Boot and Explain Security Auto Configuration?
+### Q15. How to Add Security to Spring Boot and Explain Security Auto Configuration?
 
 Answer:- To add security to a Spring Boot application, you can use the Spring Security framework, which provides comprehensive security features for Java applications. Here's how to add security to a Spring Boot application and an explanation of security auto-configuration:
 
@@ -274,7 +274,7 @@ spring.security.user.password=password
 spring.security.user.roles=ADMIN
 ```
 
-#### Q16. what is logging.level.org.springframework.security=DEBUG used for in application.properties file?
+### Q16. what is logging.level.org.springframework.security=DEBUG used for in application.properties file?
 
 Answer:- Here's a breakdown of what each part does:
 
@@ -284,7 +284,7 @@ Answer:- Here's a breakdown of what each part does:
 
 Spring Security also offers other logging levels like INFO, WARN, and ERROR. You can adjust the level based on your needs. For example, INFO might be sufficient for general security operation monitoring.
 
-#### Q17. Have you used profiles in your Spring Boot project? Explain briefly
+### Q17. Have you used profiles in your Spring Boot project? Explain briefly
 
 Answer:- Profiles in Spring Boot allow you to define different configurations for different environments (e.g., development, testing, production) and activate them based on the environment in which the application is running. Profiles are defined using application-{profile}.properties or application-{profile}.yml files, where {profile} is the name of the profile.
 
@@ -295,7 +295,7 @@ To activate a profile, you can use the spring.profiles.active property in your a
 ```xml 
 spring.profiles.active=dev
 ```
-#### Q17. Explain Spring Actuator and its advantages.
+### Q18. Explain Spring Actuator and its advantages.
 
 Answer:- Spring Boot Actuator is a set of production-ready features that provide operational insights into your Spring Boot application. Spring Actuator is a cool feature of Spring Boot with the help of which you can see what is happening inside a running application. So, whenever you want to debug your application, and need to analyze the logs you need to understand what is happening in the application right? In such a scenario, the Spring Actuator provides easy access to features such as identifying beans, CPU usage, etc.
 
@@ -309,7 +309,7 @@ Answer:- Spring Boot Actuator is a set of production-ready features that provide
 
 5. Custom Endpoints: Actuator allows you to create custom management endpoints to expose additional information or functionality specific to your application.
 
-#### Q18. Explain what is thymeleaf and how to use thymeleaf?
+### Q19. Explain what is thymeleaf and how to use thymeleaf?
 
 Answer:- Thymeleaf is a modern server-side Java template engine for web applications. It is designed to be highly extensible and easy to integrate with Spring Boot, making it a popular choice for building web applications with Spring Boot. 
 Thymeleaf allows you to create dynamic web pages by combining HTML templates with Java code.
