@@ -295,3 +295,50 @@ To activate a profile, you can use the spring.profiles.active property in your a
 ```xml 
 spring.profiles.active=dev
 ```
+#### Q17. Explain Spring Actuator and its advantages.
+
+Answer:- Spring Boot Actuator is a set of production-ready features that provide operational insights into your Spring Boot application. Spring Actuator is a cool feature of Spring Boot with the help of which you can see what is happening inside a running application. So, whenever you want to debug your application, and need to analyze the logs you need to understand what is happening in the application right? In such a scenario, the Spring Actuator provides easy access to features such as identifying beans, CPU usage, etc.
+
+1. Health Check: Actuator provides a /health endpoint that gives information about the health of the application. This can be used by monitoring tools to check if the application is running correctly.
+
+2. Metrics: Actuator includes endpoints for collecting and exposing metrics about the application, such as request rates, error rates, and JVM metrics. These metrics can be used for performance monitoring and troubleshooting.
+
+3. Monitoring and Auditing: Actuator provides endpoints for monitoring the application's configuration (/configprops), environment variables (/env), and logging levels (/loggers). It also includes auditing features for tracking changes to configuration properties (/auditevents).
+
+4. Management Endpoints: Actuator includes a variety of other management endpoints for tasks such as shutting down the application (/shutdown), viewing thread dump (/threaddump), and viewing application information (/info).
+
+5. Custom Endpoints: Actuator allows you to create custom management endpoints to expose additional information or functionality specific to your application.
+
+#### Q18. Explain what is thymeleaf and how to use thymeleaf?
+
+Answer:- Thymeleaf is a modern server-side Java template engine for web applications. It is designed to be highly extensible and easy to integrate with Spring Boot, making it a popular choice for building web applications with Spring Boot. 
+Thymeleaf allows you to create dynamic web pages by combining HTML templates with Java code.
+
+To use Thymeleaf in a Spring Boot application, follow these steps:
+1. Add Thymeleaf dependency to your pom.xml (for Maven):
+    ``` xml
+    <!-- For Maven -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+2. Create a Thymeleaf template file (e.g., index.html) in the src/main/resources/templates directory. This file will contain your HTML template with Thymeleaf expressions.
+   
+3.Use Thymeleaf expressions in your template to dynamically display data. For example, you can use ${variable} to display a variable value, th:each to iterate over a list, and th:if to conditionally display content.
+
+4. Create a controller in your Spring Boot application that returns the name of the template file (without the .html extension) as a string. For example:
+``` java
+@Controller
+public class HomeController {
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("message", "Hello, Thymeleaf!");
+        return "index";
+    }
+}
+```
+5. Access your application in a web browser and verify that the Thymeleaf template is rendered correctly, with the dynamic content displayed as expected.
+
+
