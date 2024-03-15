@@ -78,10 +78,10 @@ The run() method handles all the complex tasks of setting up the application con
 
 Answer:- There are various approaches to create a Spring Boot application using maven, but if I have to name a few, then following are the ways to create a Spring Boot project/ application using maven:
 
-Spring Boot CLI
-Spring Starter Project Wizard
-Spring Initializr
-Spring Maven Project
+1. Spring Boot CLI
+2. Spring Starter Project Wizard
+3. Spring Initializr
+4. Spring Maven Project
 
 ### Q7. What does the @SpringBootApplication annotation do internally?
 
