@@ -341,4 +341,45 @@ public class HomeController {
 ```
 5. Access your application in a web browser and verify that the Thymeleaf template is rendered correctly, with the dynamic content displayed as expected.
 
+### Q20. Can we change the port of the embedded Tomcat server in Spring boot?
 
+**Answer:-** Yes, we can change the port of the embedded tomcat server by using the application properties file. In this file, you have to add a property of “server.port” and assign it to any port you wish to. For example, if you want to assign it to 8081, then you have to mention server.port=8081. Once you mention the port number, the application properties file will be automatically loaded by Spring Boot and the required configurations will be applied on to the application.
+
+
+### 21.  What are the @RequestMapping  and @RestController annotation in Spring Boot used for?
+
+**Answer:-**  In Spring Boot, @RequestMapping and @RestController are annotations used together to develop RESTful APIs. Here's a breakdown of their individual functionalities and how they work together:
+
+#### @RestController - 
+This annotation is a specialized version of the @Controller annotation that is used to build RESTful web services. It combines the @Controller and @ResponseBody annotations.
+- **@Controller:** Marks a class as a Spring MVC controller, enabling it to handle web requests.
+- **@ResponseBody:** Tells Spring Boot to automatically convert the return value of any request handling method annotated with @RestController into JSON or XML.
+
+#### @RequestMapping: 
+The @RequestMapping annotation is used to map HTTP requests to handler methods in your controller.
+It can be placed at the class level or the method level.
+When placed at the class level, it defines a base path for all the request mappings within that class.
+
+Key attributes of @RequestMapping:
+
+- **value:** This attribute specifies the path mapping for the request.
+- **method:** This attribute restricts the mapping to specific HTTP methods (GET, POST, PUT, DELETE, etc.).
+
+### Q22. What is JPA and hibernate and there difference?
+
+**Answer:-** __JPA__ (Java Persistence API) is a Java specification for accessing, persisting, and managing data between Java objects and a relational database. It provides a standard way to map Java objects to database tables and vice versa, as well as a set of APIs for querying and managing data in the database.
+
+**Hibernate** is a popular implementation of the JPA specification.  It is an ORM (Object-Relational Mapping) framework that simplifies database interactions between Java objects and database tables.
+ 
+The main difference is that JPA is a specification, while Hibernate is an implementation of that specification. This means that Hibernate provides additional features beyond the JPA standard. However, using JPA allows for more flexibility and portability, as it is not tied to a specific implementation like Hibernate.
+
+**In essence:**
+
+Think of JPA as the blueprint for building a house (data persistence), and Hibernate as a contractor (implementation) who can build the house (ORM) following the JPA blueprint. While you can use other contractors, Hibernate is a reliable and experienced choice for the job.
+
+
+
+### Q23. Explain Spring Data?
+
+**Answer:-** Spring Data is a part of the larger Spring Framework that aims to simplify the development of data access layer in Spring applications. 
+Spring Data aims to make it easy for the developers to use relational and non-relational databases, cloud-based data services, and other data access technologies. So, basically, it makes it easy for data access and still retains the underlying data.
