@@ -416,3 +416,49 @@ Apart from this, Spring Boot also provides the facility to exclude list of auto-
 **@EnableAutoConfiguration** 
 - It is used to enable Spring Boot's auto-configuration mechanism, which automatically configures the Spring application based on its classpath and the dependencies it contains.
 - It is a combination of @Configuration and @ComponentScan annotations
+
+### Q26. What is the best way to expose custom application configuration with Spring Boot?
+
+**Answer:-** Spring Boot lets you expose custom settings for your application in two ways:
+
+**1. Using Properties Files:**
+- This is the simplest approach. You can create properties files (YAML is also supported) with key-value pairs representing your configuration settings.
+- Put these files in a special folder (src/main/resources).
+- Spring Boot automatically loads these properties and makes them available through the Spring Environment.
+- Access these settings in your code using @Value or other methods.
+
+**2. @ConfigurationProperties (Organized):**
+- This approach provides a more structured way to define your configuration.
+- Create a class annotated with @ConfigurationProperties specifying a prefix for your configuration properties.
+- Inside this class, define variables for each setting you need.
+- Spring Boot automatically matches these variables to settings with similar names in your property files and uses those values.
+
+**Choosing the Best Way:**
+
+For simple configurations with a few settings, properties files might be sufficient.
+For more complex configurations with nested structures or relationships between settings, using @ConfigurationProperties offers better type safety, organization, and maintainability.
+
+
+### 27.  Can we create a non-web application in Spring Boot?
+
+**Answer:-**  Yes, you can create non-web applications in Spring Boot. While Spring Boot is often used for developing web applications, it can also be used for standalone applications, batch processing applications, command-line applications, and more.
+We can create a non-web application by removing the web dependencies from the classpath along with defining the entry point of your application.
+
+
+### Q28. What are the steps to connect an external database like MySQL or Oracle?
+
+
+**Answer:-** To connect an external database like MySQL or Oracle to a Spring Boot application, you can follow these general steps:
+1. Add the Database Driver Dependency in pom.xml file
+2. Configure the Database Connection in application.properties file.    
+    ```xml 
+    spring.datasource.url=jdbc:mysql://localhost:3306/mydatabase
+    spring.datasource.username=myuser
+    spring.datasource.password=mypassword
+    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver (Optional)
+    ```
+3. Enable JPA (Optional) and Defines Entities - If you plan to use JPA (Java Persistence API) for object-relational mapping, include the spring-boot-starter-data-jpa dependency and configure JPA properties like:
+```spring.jpa.hibernate.ddl-auto: ```
+Defines how JPA interacts with the database schema (e.g., create, update, none).
+
+4. Run Your Application
