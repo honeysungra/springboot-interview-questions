@@ -383,3 +383,36 @@ Think of JPA as the blueprint for building a house (data persistence), and Hiber
 
 **Answer:-** Spring Data is a part of the larger Spring Framework that aims to simplify the development of data access layer in Spring applications. 
 Spring Data aims to make it easy for the developers to use relational and non-relational databases, cloud-based data services, and other data access technologies. So, basically, it makes it easy for data access and still retains the underlying data.
+
+### Q24. What do you understand by auto-configuration in Spring Boot and how to disable the auto-configuration?
+
+**Answer:-** Auto-configuration in Spring Boot refers to the mechanism by which Spring Boot automatically configures beans and components based on the dependencies and environment detected in your application. 
+
+To disable auto-configuration in Spring Boot, you can use the @EnableAutoConfiguration annotation with the exclude attribute to exclude specific auto-configuration classes. For example, to exclude the DataSourceAutoConfiguration class, which configures a data source bean, you can use the following code:
+
+```Java
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+```
+
+In this example, @SpringBootApplication(exclude = DataSourceAutoConfiguration.class) disables the auto-configuration of the data source bean. You can use the exclude attribute to exclude other auto-configuration classes as needed.
+
+Apart from this, Spring Boot also provides the facility to exclude list of auto-configuration classes by using the spring.autoconfigure.exclude property. You can go forward, and add it either in the application.properties or add multiple classes with comma-separated.
+
+### Q25. What are the differences between @SpringBootApplication and @EnableAutoConfiguration annotation?
+
+**Answer:-** **@SpringBootApplication** 
+- It is typically used to annotate the main class of a Spring Boot application to enable various features, such as component scanning, auto-configuration, and specifying the base package for component scanning.
+- It is a combination of @Configuration, @ComponentScan and @EnableAutoConfiguration annotations.
+
+**@EnableAutoConfiguration** 
+- It is used to enable Spring Boot's auto-configuration mechanism, which automatically configures the Spring application based on its classpath and the dependencies it contains.
+- It is a combination of @Configuration and @ComponentScan annotations
