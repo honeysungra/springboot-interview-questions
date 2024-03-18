@@ -462,3 +462,168 @@ We can create a non-web application by removing the web dependencies from the cl
 Defines how JPA interacts with the database schema (e.g., create, update, none).
 
 4. Run Your Application
+
+### Q29. How is Hibernate chosen as the default implementation for JPA without any configuration?
+
+**Answer:-** **@RequestMapping**\
+The @RequestMapping annotation is used in Spring MVC to map HTTP requests to handler methods in your controller. It can be placed at the class level or the method level. When placed at the class level, it defines a base path for all the request mappings within that class.
+It can be used to map requests of any HTTP method (GET, POST, PUT, DELETE, etc.) to the corresponding handler method.
+
+**@GetMapping**  \
+On the other hand, is a specialized form of @RequestMapping that is used specifically for mapping HTTP GET requests. It is a shortcut annotation that combines @RequestMapping with the method attribute set to RequestMethod.GET, making it more concise and easier to read for handling GET requests.
+
+In summary, @RequestMapping is a general-purpose annotation for mapping any HTTP request method, while @GetMapping is a specific annotation for mapping HTTP GET requests.
+
+### Q30. In which layer, should the boundary of a transaction start?
+
+**Answer:-** The boundary of the transaction should start from the Service Layer since the logic for the business transaction is present in this layer itself.
+
+
+### Q31. Explain how to register a custom auto-configuration.
+
+
+**Answer:-** Here's how to register a custom auto-configuration in Spring Boot: \
+**1. Create a Configuration Class:** Develop a class annotated with @Configuration. This class will hold the configuration logic for your custom auto-configuration feature.\
+**2. Use Conditional Annotations (Optional):**
+You can leverage conditional annotations like @ConditionalOnClass or @ConditionalOnMissingBean to control when your auto-configuration gets applied. \
+**@ConditionalOnClass:** Activates the configuration only if a specific class is present on the classpath (indicates related functionality exists). \
+**@ConditionalOnMissingBean:** Activates the configuration only if a specific bean hasn't already been defined elsewhere.
+
+**3. Implement Your Configuration Logic:** Inside your configuration class, define beans, properties, or other configurations specific to your custom feature.
+
+**4. Register the Configuration Class:** **@EnableAutoConfiguration Annotation**
+Within this annotation, provide a list that includes the class containing your custom auto-configuration. This instructs Spring Boot to consider your custom configuration during the auto-configuration process.
+
+By following these steps, you can create and register custom auto-configurations in your Spring Boot application, extending its functionality and providing tailored behavior based on your specific needs.
+
+
+### Q32. Explain Spring Data?
+
+**Answer:-** 
+### WAR vs Embedded Containers
+
+
+| Aspect         | WAR                           | Embedded Containers            |
+|----------------|-------------------------------|--------------------------------|
+| Packaging      | Packaged as a WAR file        | Packaged as an executable JAR |
+| Deployment     | Deployed to a web server   | No separate deployment step   |
+| Portability    | Portable to any servlet container | Self-contained and portable  |
+| Configuration  | External configuration (e.g., server.xml) | Configuration through application properties or classes |
+| Development    | Requires deployment to web server | Can be run directly from IDE |
+
+## WAR (Web Application Archive)
+
+- **Packaging**: WAR files contain all resources and classes needed to run a web application.
+- **Deployment**: Requires deployment to a web server (e.g., Tomcat, Jetty).
+- **Portability**: Portable to any servlet container that supports the Servlet API.
+- **Configuration**: External configuration (e.g., server.xml) for the servlet container.
+- **Development**: Requires deployment to a web server for testing.
+
+## Embedded Containers
+
+- **Packaging**: Packaged as an executable JAR file containing the application and embedded container.
+- **Deployment**: No separate deployment step; application runs directly from the JAR file.
+- **Portability**: Self-contained and portable, as the container is packaged with the application.
+- **Configuration**: Configuration through application properties or classes.
+- **Development**: Can be run directly from the IDE without deploying to a web server.
+
+In summary, WAR files are traditional deployment artifacts that require deployment to a web server, while embedded containers provide a more self-contained and lightweight deployment model that is well-suited for development and testing.
+
+
+
+### Q33. What do you think is the need for Profiles?
+
+**Answer:-** Profiles are used to provide a way to segregate the different parts of the application configuration and make it available for various environments.
+
+Consider you have multiple environments,
+
+- Dev
+- QA
+- Stage
+- Production
+Now, let’s say, you want to have different application configuration in each of the environments, you can use profiles to have different application configurations for different environments.
+
+**Example:** **Using application.properties**
+
+In your application.properties file:
+```xml
+spring.profiles.active=dev 
+```
+ 
+
+### Q25. What are the steps to add a custom JS code with Spring Boot?
+
+**Answer:-** To add custom JavaScript code to a Spring Boot application, you can follow these steps:
+
+**1. Create a JavaScript file:** First, create a JavaScript file (e.g., custom.js) with your custom JavaScript code. You can place this file in the src/main/resources/static directory of your Spring Boot project.
+
+Example custom.js:
+
+```js
+console.log("Hello, custom JavaScript!");
+```
+
+**2.Link the JavaScript file in your HTML:** If you want to include the custom JavaScript in a Thymeleaf template or a regular HTML file, you can add a <script> tag to link to your JavaScript file.
+
+Example Thymeleaf template (index.html):
+```html
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom JavaScript Example</title>
+</head>
+<body>
+    <h1>Custom JavaScript Example</h1>
+    <!-- Link to custom JavaScript file -->
+    <script th:src="@{/js/custom.js}"></script>
+</body>
+</html>
+```
+
+**3. Serve the JavaScript file:** Spring Boot automatically serves static content from the src/main/resources/static directory, so your custom.js file will be accessible at http://localhost:8080/js/custom.js (assuming your application runs on port 8080).
+
+**4. Include the JavaScript in your web pages:** Once you've linked your JavaScript file in your HTML or Thymeleaf template, the custom JavaScript code will be executed when the page is loaded.
+
+By following these steps, you can add custom JavaScript code to your Spring Boot application and include it in your web pages.
+
+### Q26. How to instruct an auto-configuration to back off when a bean exists?
+**Answer:-** To instruct an auto-configuration class to back off when a bean exists, you have to use the @ConditionalOnMissingBean annotation. The attributes of this annotation are as follows:
+
+- **value:** This attribute stores the type of beans to be checked
+- **name:** This attribute stores the name of beans to be checked
+
+### Q27. Why is Spring Data REST not recommended in real-world applications?
+
+**Answer:-** Spring Data REST is great for quick prototypes, but not ideal for complex apps because:
+
+- Security Risk: Exposes entire entities, potentially revealing sensitive data.
+- Limited Control: Offers basic CRUD, might lack customization for complex logic.
+- Over/Under Exposure: Might expose too much or not enough data by default.
+- Domain vs Consumer Focus: Prioritizes your model, not necessarily what consumers need.
+
+**Alternatives to Spring Data REST:**
+
+**Spring MVC:** Offers more control over your API design and allows you to build custom controllers with tailored functionalities.\
+**Spring WebFlux:** For reactive APIs with improved performance and scalability.
+
+### Q28. What do you understand by Spring Boot supports relaxed binding?
+**Answer:-** In Spring Boot, relaxed binding refers to the ability to configure application properties in a more flexible and forgiving manner. It allows you to use different formats, case styles, and variations of property names in your configuration files without causing errors.
+
+For example, if you have a property named server.port in your application.properties file, you can configure it using various styles:
+
+- server.port=8080 (standard format)
+- server.Port=8080 (camel case)
+- SERVER_PORT=8080 (uppercase)
+- SERVERPORT=8080 (no dot notation)
+Spring Boot's relaxed binding automatically converts these variations to the correct property name format (server.port) behind the scenes, making configuration more user-friendly and forgiving.
+
+### Q29. What is the name of the default H2 database configured by Spring Boot?
+**Answer:-** The name of the default H2 database is testdb.  Refer below:
+```
+spring.datasource.name=testdb # Name of the datasource.
+```
+Note: Just incase if you are using H2 in-memory database, then exactly that is the name of Spring Boot which is used to setup your H2 database.
+
+
