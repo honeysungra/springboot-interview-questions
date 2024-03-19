@@ -49,4 +49,126 @@ You can customize these properties based on your specific application and databa
   
 **spring.jpa.properties.hibernate.dialect:** This property sets the Hibernate dialect for the database you are using. The dialect determines the SQL syntax and database-specific features that Hibernate will use. For example, for MySQL, you would use org.hibernate.dialect.MySQLDialect, and for PostgreSQL, you would use org.hibernate.dialect.PostgreSQLDialect. Using the correct dialect ensures that Hibernate generates valid SQL queries for your database.
 
-### Q05. f
+### Q05. Important spring data JPA annotation.
+**Answer:-** Here is a list of some common annotations used in Spring Data JPA along with their descriptions and examples:\
+**1. @Entity:**
+- Description: Marks a class as an entity, which means it will be mapped to a database table.
+- Example:
+``` java
+@Entity
+public class User {
+    // fields, getters, setters
+}
+```
+**2. @Table:**
+- Description: Specifies the details of the database table to which an entity is mapped.
+- Example:
+``` java
+@Entity
+@Table(name = "users")
+public class User {
+    // fields, getters, setters
+}
+```
+- Attributes:
+     - name: (String) The name of the table in the database. Default is the entity name.\
+
+**3. @Id:**
+- Description: Specifies the primary key of an entity.
+- Example:
+``` java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+**4. @GeneratedValue:**
+- Description: Specifies the strategy used for generating primary key values.
+- Example:
+``` java
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+- Attributes:
+     - strategy: (GenerationType) The generation strategy for the primary key.\
+       
+**5. @Column:**
+- Description: Specifies the details of a column in a database table.
+- Example:
+``` java
+@Column(name = "username", nullable = false, unique = true)
+private String username;
+```
+- Attributes:
+   - name: (String) The name of the column in the database.
+   - nullable: (boolean) Whether the column allows NULL values. Default is true.
+   - unique: (boolean) Whether the column values must be unique. Default is false.
+   - Many more attributes for column definition like length, precision, scale, etc.
+     
+**6. @OneToMany:**
+- Description: Establishes a one-to-many relationship between two entities.
+- Example:
+``` java
+@Entity
+public class Department {
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
+    // other fields, getters, setters
+}
+```
+- Attributes:
+   - mappedBy: (String) The field in the target entity that owns the relationship.\
+     
+**7. @ManyToOne:**
+- Description: Specifies a many-to-one relationship between two entities.
+- Example:
+``` java
+@Entity
+public class Employee {
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+    // other fields, getters, setters
+}
+```
+- Attributes:
+   - optional: (boolean) Whether the association is optional. Default is true.
+   - fetch: (FetchType) The fetching strategy for the association. Default is FetchType.EAGER.
+   - cascade: (CascadeType[]) The cascade operations to be applied to the association.\
+
+
+**8. @Repository:**
+- Description: Indicates that an interface or class provides access to the database.
+- Example:
+``` java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    // methods for accessing user data
+}
+```
+- Attributes:
+   - mappedBy: (String) The field in the target entity that owns the relationship.\
+
+
+**9. @Query:**
+- Description: Specifies a JPQL or native SQL query to be executed.
+- Example:
+``` java
+@Query("SELECT u FROM User u WHERE u.username = ?1")
+User findByUsername(String username);
+```
+- Attributes:
+   - mappedBy: (String) The field in the target entity that owns the relationship.\
+
+**10. @Transactional:**
+- Description: Defines the scope of a single database transaction.
+- Example:
+``` java
+@Transactional
+public void updateUser(User user) {
+    userRepository.save(user);
+}
+```
+- Attributes:
+   - name: (String) The name of the column in the database.
+   - nullable: (boolean) Whether the column allows NULL values. Default is true.
+   - referencedColumnName: (String) The name of the column in the referenced table.
