@@ -257,3 +257,88 @@ In this example, the `updatedAt` field will be automatically updated with the cu
 **Answer:-** ![image](https://github.com/honeysungra/springboot-interview-questions/assets/79264165/a5a12b62-c700-4933-adef-8ac0c24c8e91)
 ![image](https://github.com/honeysungra/springboot-interview-questions/assets/79264165/fcae5d34-2e9e-4fbc-a5d9-0b7e4c745439)
 
+### Q10. Spring data JPA methods with example
+**Answer:-** 
+## Spring Data JPA Methods with Examples
+
+Spring Data JPA provides a wide range of methods that you can use to interact with your database without writing custom queries. Here are some common methods along with examples:
+
+1. **Save an Entity**:
+   - Save a new entity or update an existing one.
+     ```java
+     // Save a new entity
+     userRepository.save(new User("John Doe", 30));
+     
+     // Update an existing entity
+     User user = userRepository.findById(1L).orElseThrow();
+     user.setName("Jane Doe");
+     userRepository.save(user);
+     ```
+
+2. **Find by ID**:
+   - Find an entity by its primary key.
+     ```java
+     Optional<User> userOptional = userRepository.findById(1L);
+     ```
+
+3. **Find All**:
+   - Retrieve all entities of a certain type.
+     ```java
+     Iterable<User> users = userRepository.findAll();
+     ```
+
+4. **Delete by ID**:
+   - Delete an entity by its primary key.
+     ```java
+     userRepository.deleteById(1L);
+     ```
+
+5. **Count**:
+   - Count the number of entities in a repository.
+     ```java
+     long count = userRepository.count();
+     ```
+
+6. **Exists by ID**:
+   - Check if an entity with a given ID exists.
+     ```java
+     boolean exists = userRepository.existsById(1L);
+     ```
+
+7. **Find by Property**:
+   - Find entities by a specific property value.
+     ```java
+     List<User> users = userRepository.findByAge(25);
+     ```
+
+8. **Find by Multiple Properties**:
+   - Find entities by multiple property values.
+     ```java
+     List<User> users = userRepository.findByNameAndAge("John Doe", 30);
+     ```
+
+9. **Query Methods**:
+   - Use query methods to define custom queries.
+     ```java
+     List<User> users = userRepository.findByAgeGreaterThan(25);
+     ```
+
+10. **Sorting**:
+    - Sort the results of a query.
+      ```java
+      List<User> users = userRepository.findByAgeGreaterThanOrderByAgeDesc(25);
+      ```
+
+11. **Paging**:
+    - Retrieve results in a paginated manner.
+      ```java
+      Page<User> page = userRepository.findAll(PageRequest.of(0, 10));
+      ```
+
+12. **Custom Query**:
+    - Define a custom query using `@Query` annotation.
+      ```java
+      @Query("SELECT u FROM User u WHERE u.age > :age")
+      List<User> findByAgeGreaterThan(@Param("age") int age);
+      ```
+These are just a few examples of the methods provided by Spring Data JPA. You can combine these methods and use them according to your application's needs to interact with your database easily and efficiently.
