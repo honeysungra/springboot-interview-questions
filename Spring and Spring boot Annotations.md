@@ -88,3 +88,121 @@ If there are multiple implementations for a single interface then we can use _@Q
 -  The `@Configuration` annotation in Spring is used to indicate that a class defines one or more bean definitions and that Spring should manage the instantiation and configuration of beans defined in that class.
 - Beans defined in `@Configuration` classes can be injected into other beans using `@Autowired`.
 - `@Configuration` is meta-annotated with `@Component`, so `@Configuration` classes are candidates for component scanning and can be autodetected by Spring.
+
+### @Component:
+- The `@Component` annotation in Spring is a generic stereotype annotation.
+- It Marks a class as a Spring component.
+- Annotate classes should be managed as beans by Spring.
+- `@Component` is a generic stereotype annotation and does not provide any specific behavior or specialization beyond indicating that a class is a Spring component. For more specific behaviors, you can use `@Service`, `@Repository`, or `@Controller`, which are specializations of `@Component` with additional semantics.
+
+  
+  **The `@Controller`, `@Service`, and `@Repository` annotations are specializations of the `@Component` annotation in Spring, used to define classes as Spring-managed components with specific roles and behavior. Here's a summary of each:**
+### @Controller:
+- Used to mark a class as a web controller handling incoming HTTP requests and return responses.
+- Used to mark classes as Spring MVC controllers.
+- Methods within a controller class are annotated with  `@RequestMapping`  to map specific URLs to handler methods.
+-   Controller methods often interact with services and repositories to retrieve or manipulate data.
+- Enables automatic detection and registration of controllers in the Spring MVC context.
+
+### @Service:
+-   Used to mark classes as service components in the business layer.
+- Typically used to contain business logic, perform operations, and coordinate the flow of data between controllers and repositories.
+- Enables automatic detection and registration of services in the Spring context.
+
+### @Repository:
+-   Used to mark a class as a data access layer component (often used with JPA).
+-   Repository classes provide an abstraction layer for interacting with your database.
+- They typically extend interfaces like  `JpaRepository`  provided by Spring Data JPA, inheriting methods for CRUD (Create, Read, Update, Delete) operations and other data access functionalities.
+-Enables automatic detection and registration of repositories in the Spring context.
+
+### @Lazy:
+- By default, the Spring IoC container creates and initializes all singleton beans at the time of application startup. We can prevent this pre-initialization of a singleton bean by using the @Lazy annotation.
+- The @Lazy annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
+- The `@Lazy` annotation in Spring is used to indicate that a bean should be lazily initialized. When a bean is lazily initialized, its initialization is deferred until the bean is actually requested for the first time.
+- This can be useful for improving performance by delaying the creation of beans that are not immediately needed.
+- Beans that are injected with `@Lazy` dependencies are also lazily initialized.
+- By default, Spring beans are eagerly initialized. Use `@Lazy` to override this behavior for specific beans.
+
+### @Scope: 
+In Spring, the `@Scope` annotation is used to specify the scope of a bean, determining how long the bean should live and how it should be shared in the application context. We use  _@Scope_  to define the scope of a  @Component class or a  @Bean definition.
+
+**Scope Types**: The `@Scope` annotation accepts a `String` value representing the scope type, which can be one of the following:
+
+-   **Singleton** (`"singleton"`): When a Spring bean is scoped as a singleton, the Spring IoC container creates exactly one instance of the object defined by that bean definition and shared across the entire application. (default behavior if not specified).
+-   **Prototype** (`"prototype"`): A new instance of the bean is created each time it is requested.
+-   **Request** (`"request"`): The bean is scoped to the lifecycle of a single HTTP request. Only valid in a web-aware Spring application.
+-   **Session** (`"session"`): The bean is scoped to the lifecycle of an HTTP session. Only valid in a web-aware Spring application.
+-   **Application** (`"application"`): The bean is scoped to the lifecycle of a ServletContext. Only valid in a web-aware Spring application. A single instance of the bean is created and shared across the entire application context.
+-   **Websocket** (`"websocket"`): The bean is scoped to the lifecycle of a WebSocket. Only valid in a web-aware Spring application.
+
+Example: In this example, `MyPrototypeComponent` is scoped as a prototype, so a new instance will be created each time it is requested.
+```java
+@Component
+@Scope("prototype")
+public class MyPrototypeComponent {
+    // Class implementation
+}
+```
+- If you don't specify a scope, beans are by default singleton scoped, meaning there is only one instance per Spring container.
+
+### @Value: 
+The `@Value` annotation in Spring is used to inject values into fields in a Spring-managed bean from properties files, environment variables, or other Spring-managed beans. It allows you to retrieve values from various sources and assign them to fields, method arguments, or even entire method return types.
+
+1.  **Injecting Values**:
+    
+    -   Use `@Value` to inject values into fields, constructor parameters, or method parameters.
+    -   The value to inject can be a literal value, a property placeholder, or an expression.
+    -   Example:
+        ```java
+        @Component
+        public class MyComponent {
+            @Value("${my.property}")
+            private String myProperty;
+            // Getter and setter
+        }
+      ```  
+Here, `${my.property}` is a placeholder for a property defined in a properties file.
+
+2.  **Property Resolution**:
+    
+    -  Spring resolves placeholders like `${my.property}` by looking for a property with the key `my.property` in the application's property sources (e.g., properties files, environment variables, system properties).
+    -   You can also use the `@PropertySource` annotation to specify the location of properties files.
+3.  **Default Values**:
+    
+    -   You can specify a default value to use if the property is not found:
+        
+		 ```java
+		@Value("${my.property:default}")
+		private String myProperty;
+		```
+4.  **Expressions**:
+    
+    -   You can use SpEL (Spring Expression Language) in `@Value` annotations to perform more complex evaluations:
+		```java
+		@Value("#{systemProperties['java.home']}")
+		private String javaHome;
+		```        
+5.  **Environment Variables**:
+    
+    -   `@Value` can also be used to inject values from environment variables:
+        ```java
+        @Value("${JAVA_HOME}")
+        private String javaHome;
+        ```
+6.  **Constructor Injection**:
+    
+    -   `@Value` can be used in constructor parameters to inject values when creating a bean:
+        ```java
+        @Component
+        public class MyComponent {
+        
+            private final String myProperty;
+        
+            @Autowired
+            public MyComponent(@Value("${my.property}") String myProperty) {
+                this.myProperty = myProperty;
+            }
+        
+            // Getter
+        }
+    ```
