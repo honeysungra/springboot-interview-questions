@@ -102,6 +102,7 @@ If there are multiple implementations for a single interface then we can use _@Q
 - Used to mark classes as Spring MVC controllers.
 - Methods within a controller class are annotated with  `@RequestMapping`  to map specific URLs to handler methods.
 -   Controller methods often interact with services and repositories to retrieve or manipulate data.
+-   @Controller annotation is simply a specialization of the @Component class, which allow us to auto-detect implementation classes through the classpath scanning
 - Enables automatic detection and registration of controllers in the Spring MVC context.
 
 ### @Service:
