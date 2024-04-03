@@ -121,6 +121,21 @@ If there are multiple implementations for a single interface then we can use _@Q
 - They typically extend interfaces like  `JpaRepository`  provided by Spring Data JPA, inheriting methods for CRUD (Create, Read, Update, Delete) operations and other data access functionalities.
 -Enables automatic detection and registration of repositories in the Spring context.
 
+### @RestController:
+- The @RestController is a stereotype annotation in Spring and it is a specialized version of the @Controller annotation that is used to create RESTful web services.
+- It combines the @Controller and @ResponseBody annotations, meaning that it not only marks the class as a controller but also ensures that the return data in a format like JSON or XML.
+
+### Difference between @Controller and @RestController annotation?
+
+| Feature              | @Controller                                                  | @RestController                                              |
+|----------------------|--------------------------------------------------------------|---------------------------------------------------------------|
+| Purpose              | Used for traditional web applications, returning views      | Used for building RESTful APIs, returning data (JSON, XML)    |
+| Response Type         | Typically returns templates (JSP, Thymeleaf)                           | Returns data in formats like JSON, XML, etc. |
+| Additional Annotation    | Often used with @ResponseBody for returning data            | Can be used alone for data return           |
+| Example              | @Controller public class MyController { ... }                | @RestController public class MyRestController { ... }        |
+
+In summary, `@Controller` is used for traditional web applications where views are rendered, while `@RestController` is used for building APIs where data is returned directly in a format like JSON or XML.
+
 ### @Lazy:
 - By default, the Spring IoC container creates and initializes all singleton beans at the time of application startup. We can prevent this pre-initialization of a singleton bean by using the @Lazy annotation.
 - The @Lazy annotation may be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
