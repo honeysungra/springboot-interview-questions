@@ -8,6 +8,11 @@
 - _@Component_ is a class-level annotation
 - It helps in creating a loosely coupled and easily maintainable application by promoting the use of dependency injection and inversion of control.
 
+### @ResponseBody : 
+-  It is typically used in combination with the @Controller annotation to create RESTful web services that return data in a format like JSON or XML.
+-  By default, Spring uses the MappingJackson2HttpMessageConverter to convert Java objects to JSON.
+-  In Spring MVC, if a method is annotated with @RestController, which is a stereotype annotation that combines @Controller and @ResponseBody, then @ResponseBody is implicit for all mapping methods in that controller.
+
 ### @Autowired: 
 - The `@Autowired` annotation in Spring is used to automatically inject a dependency into a Spring bean. It allows Spring to resolve and provide the dependency at runtime, without the need for manual instantiation or lookups.
 - Spring automatically wires the dependency based on type. You can also use `@Qualifier` to specify a bean name if there are multiple beans of the same type.
@@ -207,3 +212,103 @@ Here, `${my.property}` is a placeholder for a property defined in a properties f
             // Getter
         }
     ```
+### @PropertySource and @PropertySources
+
+The `@PropertySource` and `@PropertySources` annotations in Spring are used to specify the location of properties files that contain configuration properties for your application. These annotations are used in conjunction with the `@Configuration` annotation to load external properties files into the Spring environment. Here's a summary of each annotation:
+
+1.  **@PropertySource**:
+    
+    -   Use `@PropertySource` to specify the location of a single properties file.
+    -   You can specify the file location as a classpath resource or a file system path.
+    -   Example:
+     ```java
+        @Configuration
+        @PropertySource("classpath:application.properties")
+        public class AppConfig {
+            // Configuration class
+        }
+    ```
+    - This example loads the `application.properties` file from the classpath.
+2.  **@PropertySources**:
+    
+    -   Use `@PropertySources` to specify multiple properties files.
+    -   You can specify an array of `@PropertySource` annotations within `@PropertySources`.
+    -   Example:
+	```java
+	@Configuration
+	@PropertySources({
+		@PropertySource("classpath:app.properties"),
+		@PropertySource("file:/path/to/external.properties")
+	})
+	public class AppConfig {
+		// Configuration class
+	    } 
+	```        
+   -  This example loads properties from both `app.properties` in the classpath and `external.properties` from a file system path.
+3.  **Usage**:
+    
+    -   You typically use `@PropertySource` or `@PropertySources` in a configuration class (annotated with `@Configuration`) to load properties files into the Spring environment.
+    -   Once loaded, you can use the `@Value` annotation to inject specific properties into your beans.
+
+### @ConfigurationProperties
+
+The `@ConfigurationProperties` annotation in Spring is used to bind external configuration properties to a Java object. It allows you to map properties defined in properties files, environment variables, or command-line arguments to fields in a Java class. Here's how it works:
+
+1.  **Define Configuration Properties Class**:
+    
+    -   Create a Java class with fields corresponding to the configuration properties you want to bind.
+    -   Annotate the class with `@ConfigurationProperties` and specify the prefix used for the properties.
+    -   Example:
+   ```java
+        @Component
+        @ConfigurationProperties(prefix = "myapp")
+        public class AppConfig {
+            private String name;
+            private int timeout;
+        
+            // Getters and setters
+        } 
+ ```       
+2.  **Specify Properties Prefix**:
+    
+    -   Use the `prefix` attribute of `@ConfigurationProperties` to specify the prefix used for the properties.
+    -   In the example above, properties like `myapp.name` and `myapp.timeout` would be mapped to the `name` and `timeout` fields, respectively.
+3.  **Enable Configuration Properties Binding**:
+    
+    -   Add `@EnableConfigurationProperties` to one of your configuration classes to enable binding of configuration properties.
+```java
+        @SpringBootApplication
+        @EnableConfigurationProperties(AppConfig.class)
+        public class MyApplication {
+            // Application configuration
+        }
+```        
+4.  **Externalize Configuration**:
+    
+    -   Define your configuration properties in properties files, environment variables, or command-line arguments.
+    -   Example `application.properties`:
+		```java
+		myapp.name=MyApp
+		myapp.timeout=5000 
+		```        
+5.  **Usage**:
+    
+    -   Spring will bind the properties defined in your properties files to the fields in your `@ConfigurationProperties` class.
+    -   You can then inject the `AppConfig` bean into your application and use the mapped properties.
+```java
+        @Service
+        public class MyService {
+            private final AppConfig appConfig;
+        
+            public MyService(AppConfig appConfig) {
+                this.appConfig = appConfig;
+            }
+        
+            public void doSomething() {
+                System.out.println("Name: " + appConfig.getName());
+                System.out.println("Timeout: " + appConfig.getTimeout());
+            }
+        } 
+```        
+
+The `@ConfigurationProperties` annotation provides a convenient way to externalize and bind configuration properties in Spring applications, making it easier to manage and change configuration settings without modifying the code.
