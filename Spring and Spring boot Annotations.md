@@ -327,3 +327,85 @@ The `@ConfigurationProperties` annotation in Spring is used to bind external con
 ```        
 
 The `@ConfigurationProperties` annotation provides a convenient way to externalize and bind configuration properties in Spring applications, making it easier to manage and change configuration settings without modifying the code.
+
+### @RequestMapping:
+`@RequestMapping` is an annotation in Spring MVC (Model-View-Controller) framework used to map web requests to handler methods in controller classes.
+-   It is used to map HTTP requests (GET, POST, PUT, DELETE, etc.) to specific handler methods.
+-  It can be applied at the class level or method level.
+-   At the class level, it maps requests to all handler methods in the controller class.
+-   At the method level, it maps requests to a specific handler method.
+1.  **Basic Usage**:
+    
+    -   Annotate a method in your `@Controller` class with `@RequestMapping` to map a specific URL pattern to that method.
+    -   Example:
+ ```java
+	        @Controller
+        public class MyController {
+        
+            @RequestMapping("/hello")
+            public String sayHello() {
+                return "Hello, World!";
+            }
+        } 
+   ```        
+   -   In this example, the `sayHello` method will be invoked when a GET request is made to the `/hello` URL.
+2.  **HTTP Methods**:
+    
+    -   You can specify the HTTP method for the mapping using the `method` attribute of `@RequestMapping`.
+    -   Example:
+ ```java
+        @RequestMapping(value = "/hello", method = RequestMethod.POST)
+        public String createMessage() {
+            return "Message created!";
+        }
+```        
+   -   Here, the `createMessage` method will be invoked only for POST requests to the `/hello` URL.
+3.  **URL Patterns**:
+    
+    -   `@RequestMapping` supports various URL patterns, including path variables, wildcards, and regular expressions.
+    -   Example:
+```java
+        `@RequestMapping("/hello/{name}")
+        public String sayHello(@PathVariable String name) {
+            return "Hello, " + name + "!";
+        }` 
+```        
+   -   In this example, the `name` path variable will be extracted from the URL.
+4.  **Request Parameters**:
+    
+    -   You can also map requests based on specific request parameters.
+    -   Example:
+```java
+        `@RequestMapping(value = "/hello", params = "name")
+        public String sayHello(@RequestParam String name) {
+            return "Hello, " + name + "!";
+        }` 
+ ```       
+   -   This mapping will match requests to `/hello` only if they contain a `name` parameter.
+5.  **Consumes and Produces**:
+    
+    -   You can use the `consumes` and `produces` attributes of `@RequestMapping` to specify the media types that a method can consume and produce.
+    -   Example:
+```java
+        `@RequestMapping(value = "/hello", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+        public ResponseEntity<String> processJson(@RequestBody String json) {
+            // Process JSON request and return JSON response
+        }` 
+```        
+   -   This mapping will match POST requests to `/hello` that have a `Content-Type` of `application/json`.
+
+### @GetMapping
+-  `@GetMapping`  is a composed annotation in Spring MVC that maps HTTP GET requests to handler methods in a controller class.
+-   It is a shortcut for  `@RequestMapping(method = RequestMethod.GET)`.
+-  Can be applied at the class level or method level.
+    -   Class level: Maps all GET requests to handler methods in the controller.
+    -   Method level: Maps GET requests to a specific handler method.
+- **Path Variables**: You can use `@PathVariable` in combination with `@GetMapping` to extract values from the URL path. For example:
+```java
+@GetMapping("/hello/{name}")
+public String sayHello(@PathVariable String name) {
+    return "Hello, " + name + "!";
+}
+```
+- Can specify additional parameters like headers, consumes, produces, etc.
+-   Provides a more readable and concise way to map GET requests compared to  `@RequestMapping`.
