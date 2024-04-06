@@ -409,3 +409,95 @@ public String sayHello(@PathVariable String name) {
 ```
 - Can specify additional parameters like headers, consumes, produces, etc.
 -   Provides a more readable and concise way to map GET requests compared to  `@RequestMapping`.
+
+### @PostMapping: 
+-   Composed annotation in Spring MVC that maps HTTP POST requests to handler methods in a controller class.
+-   Shortcut for  `@RequestMapping(method = RequestMethod.POST)`.
+-   Used to handle POST requests, typically for creating or submitting new resources.
+-   Can be applied at the class level or method level.
+-   Supports specifying the URL path pattern and additional parameters like headers, consumes, produces, etc.
+-   Commonly used in web forms, file uploads, and creating new resources in RESTful APIs.
+-  **RequestBody**: Use `@RequestBody` to bind the HTTP request body to a method parameter. Example:
+ ```java
+    @PostMapping("/create")
+    public ResponseEntity<String> createUser(@RequestBody User user) {
+        // Create user logic
+    }
+ ```    
+-  **Response Entity**: Can return a `ResponseEntity` to specify the HTTP status code and response body.
+
+### @RequestBody: 
+- The @RequestBody annotation is responsible for retrieving the HTTP request body and automatically convert it to the Java object using an  `HttpMessageConverter`
+-   Enables handling incoming data in the request body, which is common in RESTful APIs and web services.
+-   `@RequestBody` can be used with other HTTP methods like PUT and PATCH as well, not just POST.
+-   **Example**:
+    ```java
+    @PostMapping("/create")
+    public ResponseEntity<String> createUser(@RequestBody User user) {
+        // Create user logic
+    } 
+    ```
+-   **Request Body**: The `User` object in the example is populated with the data from the HTTP request body, typically in JSON or XML format.
+
+### @PutMappping: 
+-   `@PutMapping`  is a composed annotation in Spring MVC that maps HTTP PUT requests to handler methods in a controller class.
+-   It is a shortcut for  `@RequestMapping(method = RequestMethod.PUT)`.
+-   Used to handle PUT requests, typically for updating or replacing an existing resource.
+-   Can be applied at the class level or method level.
+-   Supports specifying the URL path pattern and additional parameters like headers, consumes, produces, etc.
+-   Commonly used in RESTful APIs for updating resources based on a unique identifier (e.g.,  `/users/{id}`).
+-   Often used in conjunction with  `@RequestBody`  to bind the request body (usually a JSON or XML representation of the updated resource) to a method argument.
+-   The `@PathVariable` annotation is used to extract values from the URL path.
+
+### @DeleteMapping:
+-   `@DeleteMapping`  is a composed annotation in Spring MVC that maps HTTP DELETE requests to handler methods in a controller class.
+-   It is a shortcut for  `@RequestMapping(method = RequestMethod.DELETE)`.
+-   Used to handle DELETE requests, typically for deleting or removing an existing resource.
+-   Can be applied at the class level or method level.
+-   Supports specifying the URL path pattern and additional parameters like headers, consumes, produces, etc.
+-   Commonly used in RESTful APIs for deleting resources based on a unique identifier (e.g.,  `/users/{id}`).
+-   Often used without a request body, as DELETE requests typically don't have a request body.
+-  **Path Variables**: Can use `@PathVariable` to extract values from the URL path, such as the ID of the resource to be deleted.
+-   **Response Entity**: Can return a `ResponseEntity` to specify the HTTP status code and response body.
+**Example**
+	```java
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+	    // Delete user logic
+	}
+	```
+	
+### @PathVariable:
+-   Used to extract values from the URL path and bind them to method arguments in a controller method.
+- Used to capture dynamic values from the URI and pass them to the controller method for processing.
+-   Commonly used in RESTful APIs to handle URLs with variable parts (e.g.,  `/users/{id}`,  `/orders/{orderId}/items/{itemId}`).
+-   The method parameter annotated with  `@PathVariable`  should match the name of the URI template variable (e.g.,  `@PathVariable("id") Long id`).
+-   Can be used with multiple path variables in a single method.
+- Path variables can be optional by setting the `required` attribute to `false`.
+Example - 
+	```java
+	@GetMapping("/users/{id}/posts/{postId}")
+	public String getPostById(@PathVariable Long id, @PathVariable(required = false) Long postId) {
+	    // Logic to fetch post with the given ID under the user with id
+	}
+	```
+### @RequestParam:
+- It Binds HTTP request parameters to method parameters in a Spring `@Controller` class.
+-  `@RequestParam` is used to extract request parameters from the URL query string or form data.
+-  The `value` attribute can be used to specify the name of the request parameter.
+-   If the parameter name matches the method parameter name, the `value` attribute can be omitted.
+-   `defaultValue` can be used to provide a default value for the parameter if it is not present in the request.
+-   `required` attribute can be used to specify if the parameter is required or not. It defaults to `true`.
+Example:
+	```java
+	@GetMapping("/search")
+	public String searchProducts(@RequestParam("q") String query,
+	                             @RequestParam(defaultValue = "0") int page,
+	                             @RequestParam(required = false) String category,
+	                             Model model) {
+	    // logic to search products based on query, page, and category
+	    // ...
+	    model.addAttribute("products", products);
+	    return "search-results";
+	}
+	```
