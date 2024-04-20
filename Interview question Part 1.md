@@ -230,10 +230,10 @@ Spring Boot provides features like JPA (Java Persistence API) and Spring Data re
 
 #### Benefits of Three-Tier Architecture:
 
-Separation of Concerns: Each layer has a well-defined purpose, making the codebase easier to understand, maintain, and test.
-Loose Coupling: Changes in one layer don't necessarily require changes in other layers, promoting flexibility.
-** Reusability:** Business logic in the service layer can be reused across different presentation layers.
-Scalability: You can independently scale different tiers based on their needs.
+-Separation of Concerns: Each layer has a well-defined purpose, making the codebase easier to understand, maintain, and test.
+-Loose Coupling: Changes in one layer don't necessarily require changes in other layers, promoting flexibility.
+-Reusability: Business logic in the service layer can be reused across different presentation layers.
+-Scalability: You can independently scale different tiers based on their needs.
 
 ### Q14. What Is Spring Boot DevTools used for?
 
@@ -263,9 +263,9 @@ Add Spring Security Dependency: In your pom.xml (for Maven), add the following d
 ```
 Here's what it does by default:
 
-Secures all Endpoints: All HTTP endpoints are secured, requiring user authentication for access.
-Default Login: A basic login form is enabled using HTTP Basic authentication. Spring Boot generates a random initial user with a password logged to the console.
-BCrypt Password Encoding: It uses a strong password hashing algorithm (BCrypt) to securely store passwords.
+-Secures all Endpoints: All HTTP endpoints are secured, requiring user authentication for access.
+-Default Login: A basic login form is enabled using HTTP Basic authentication. Spring Boot generates a random initial user with a password logged to the console.
+-BCrypt Password Encoding: It uses a strong password hashing algorithm (BCrypt) to securely store passwords.
 
 Default username is user and password is generated on console. You can change the username, passwords and roles in application.properties file also.
 ```xml 
