@@ -278,13 +278,13 @@ spring.security.user.roles=ADMIN
 
 Answer:- Here's a breakdown of what each part does:
 
--> logging.level: This is a common property prefix used for configuring logging levels in Spring Boot applications. 
--> org.springframework.security: This specifies the logger name. In this case, it targets the entire Spring Security package.
--> =DEBUG: This assigns the level DEBUG to the logger. DEBUG is a specific level in logging that captures very detailed information, including method calls, variable states, and other low-level details.
+- logging.level: This is a common property prefix used for configuring logging levels in Spring Boot applications. 
+- org.springframework.security: This specifies the logger name. In this case, it targets the entire Spring Security package.
+- =DEBUG: This assigns the level DEBUG to the logger. DEBUG is a specific level in logging that captures very detailed information, including method calls, variable states, and other low-level details.
 
 Spring Security also offers other logging levels like INFO, WARN, and ERROR. You can adjust the level based on your needs. For example, INFO might be sufficient for general security operation monitoring.
 
-### Q17. Have you used profiles in your Spring Boot project? Explain briefly
+### Q17. Have you used profiles n your Spring Boot project? Explain briefly
 
 Answer:- Profiles in Spring Boot allow you to define different configurations for different environments (e.g., development, testing, production) and activate them based on the environment in which the application is running. Profiles are defined using application-{profile}.properties or application-{profile}.yml files, where {profile} is the name of the profile.
 
