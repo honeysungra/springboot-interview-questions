@@ -551,7 +551,7 @@ spring.profiles.active=dev
 ```
  
 
-### Q25. What are the steps to add a custom JS code with Spring Boot?
+### Q34. What are the steps to add a custom JS code with Spring Boot?
 
 **Answer:-** To add custom JavaScript code to a Spring Boot application, you can follow these steps:
 
@@ -588,13 +588,13 @@ Example Thymeleaf template (index.html):
 
 By following these steps, you can add custom JavaScript code to your Spring Boot application and include it in your web pages.
 
-### Q26. How to instruct an auto-configuration to back off when a bean exists?
+### Q35. How to instruct an auto-configuration to back off when a bean exists?
 **Answer:-** To instruct an auto-configuration class to back off when a bean exists, you have to use the @ConditionalOnMissingBean annotation. The attributes of this annotation are as follows:
 
 - **value:** This attribute stores the type of beans to be checked
 - **name:** This attribute stores the name of beans to be checked
 
-### Q27. Why is Spring Data REST not recommended in real-world applications?
+### Q36. Why is Spring Data REST not recommended in real-world applications?
 
 **Answer:-** Spring Data REST is great for quick prototypes, but not ideal for complex apps because:
 
@@ -608,7 +608,7 @@ By following these steps, you can add custom JavaScript code to your Spring Boot
 **Spring MVC:** Offers more control over your API design and allows you to build custom controllers with tailored functionalities.\
 **Spring WebFlux:** For reactive APIs with improved performance and scalability.
 
-### Q28. What do you understand by Spring Boot supports relaxed binding?
+### Q37. What do you understand by Spring Boot supports relaxed binding?
 **Answer:-** In Spring Boot, relaxed binding refers to the ability to configure application properties in a more flexible and forgiving manner. It allows you to use different formats, case styles, and variations of property names in your configuration files without causing errors.
 
 For example, if you have a property named server.port in your application.properties file, you can configure it using various styles:
@@ -619,7 +619,7 @@ For example, if you have a property named server.port in your application.proper
 - SERVERPORT=8080 (no dot notation)
 Spring Boot's relaxed binding automatically converts these variations to the correct property name format (server.port) behind the scenes, making configuration more user-friendly and forgiving.
 
-### Q29. What is the name of the default H2 database configured by Spring Boot?
+### Q38. What is the name of the default H2 database configured by Spring Boot?
 **Answer:-** The name of the default H2 database is testdb.  Refer below:
 ```
 spring.datasource.name=testdb # Name of the datasource.
