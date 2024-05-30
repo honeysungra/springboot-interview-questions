@@ -2,8 +2,9 @@
 
 ### Q01. How is Hibernate chosen as the default implementation for JPA without any configuration?
 
-**Answer:-** Spring Data JPA builds on the standard JPA specification and provides additional features to reduce the amount of boilerplate code neededd for CRUD operations. It offers repository interfaces that can be easily extended to define custom queries, and it provides support for pagination, auditing, and dynamic query generation.
-It uses JPA (Java Persistence API) to interact with databases, allowing developers to focus on writing queries and business logic rather than handling low-level database operations.
+**Answer:-** Hibernate is chosen as the default implementation for JPA (Java Persistence API) in Spring Boot applications because of Spring Boot auto-configuration.
+
+When you add the spring-boot-starter-data-jpa dependency to your project, it includes the necessary dependencies for JPA and Hibernate. Specifically, it pulls in Hibernate as the default JPA implementation.
 
 ### Q02.  Basic Flow of Spring Data JPA?
 ![Flow of Spring data JPA](https://github.com/honeysungra/springboot-interview-questions/assets/79264165/30af0c53-0c5c-4e40-a65f-12bd1e647a27)
