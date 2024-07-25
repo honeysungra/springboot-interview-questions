@@ -222,7 +222,7 @@ public class Robot implements Workable {
 
 By splitting large interfaces into smaller, more specific ones, we ensure that implementing classes only need to be concerned with the methods that are relevant to them. This leads to cleaner, more maintainable code and reduces the implementation burden on classes.
 
-## 6. What is Dependency Inversion Principle?
+## 7. What is Dependency Inversion Principle?
 The principle states that we must use abstraction (abstract classes and interfaces) instead of concrete implementations.
 
 -   High-level modules should not depend on low-level modules. Both should depend on abstractions.
