@@ -1,0 +1,52 @@
+1. What is docker and how it can be used in context of microservices ?
+2. How does spring boot support the development of restful web services ?
+3. How do you handle communication between microservices.
+4. What is service discovery in microservices ?
+5. How do you handle database transactions in a microservices environment ?
+6. Explain Monolith Vs Microservices software architecture ?
+7. How to manage ip’s and servers in a microservices architecture ?
+8. How Service Discovery and Registration works ?
+9. How Client side load balancing different then the Server Side load balancing ?
+10. Is server side load balancing causes a single point of failure ?
+11. How to handle failure in a microservices environment ?
+12. How the retry pattern works ?
+13. How a block thread causes issue in a microservices environment ?
+14. How to protect your microservices from random load ?
+15. Circuit Breaker design pattern ?
+16. Explain the Half open state of a  circuit breaker in spring boot ?
+17. How to track a slower Microservice which causes performance issue ?
+18. How to track exceptions in a microservices environment ?
+19. What is an exchange in rabbit mq
+20. What is docker and how it can be used in context of microservices ?
+21. Have you heard the term orchestration, in terms of microservices ?
+22. How a block thread causes issue in a microservices environment ?
+23. How to protect your microservices from random load ?
+24. How to track a slower Microservice which causes performance issue ?
+25. How to track exceptions in a microservices environment ?
+26. What is cohesion and coupling in terms of microservices
+27. How many microservices are there in your application ?
+28. Which are the annotations we exclusively used in microservices. I dont want to any annotations hear anything in rest api and spring boot ?
+29. What is spring cloud and how it is benefitial for building microservices ?
+30. Suppose you want to ensure zero downtime deployment for a spring boot e commerce application. What approach would you take ?
+31. What is Canary deployment startegy
+32. How would you design zomato backend from scratch ?
+33. Are you aware of key principles of microservice design ?
+34. How do you implement rate limiting and authentication at the API gateway ?
+35. What is the importance of CICD in microservices ?
+36. How do you setup a CICD pipeline for microservices ?
+37. Lets say there is service A and service B(microservices). Service B is having some issues, not able to connect to DB. not able to respond on time, How will you make sure that whole infrastructure should not go down due to 1 bad service.
+38. What is Api gateway ?
+39. Do you know discovery server ?
+40. List at least 3 design data patterns which you have used in microservies ?
+41. What do you understand by domain driven design ?
+42. Do you know what is circuit breaker ?
+43. What is bounded context in microservices ?
+44. For logging what are you doing in microservices ?
+45. Suppose there are 10 microservices, how will you debug an issue in 5th service ?
+46. When we call serviceB from serviceA, how the other microservice maintains the user session ?
+47. There is huge load on microservices and multiple logs are generated. suppose 1 lac users logged in & logs are generated and session is also maintained. How will you identify these logs are for this particular user ?
+48. Have you worked on event sourcing ?
+49. how do you maintain the scalability of microservices ?
+Q50. How can you make sure a Microservices based application can handle more users as it becomes more popular
+
+... will add more real interview questions, check weekly ...
