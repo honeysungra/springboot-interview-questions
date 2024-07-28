@@ -1,0 +1,16 @@
+1. Kafka, Have you worked on any stream topologies ?
+2. For reading data from kafka topic in spring boot what are you using ? r u using spring cloud stream?
+3. Kafka, you told you are consuming the data. What feature in spring you are using to read the data ?
+4. What is default message size which kafka can accept ?
+5. For sending message of 15MB from producer to broker and from broker to consumer, Then what all paramters would you be configuring ? 
+6. If message is beyond maximum size, then what would happen ?
+7. What is replication factor in kafka ?
+8. Why do we implement replication factor ?
+9. What is fault tolerance ?
+10. Is it possible to implement fault tolerance using replication factor ?
+
+— will add more,,, check weekly —
+
+########################
+Message me on Instagram to get access to NEW interview preparation website.....
+########################
