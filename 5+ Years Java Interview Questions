@@ -1,0 +1,96 @@
+> Ravi:
+5+ Years Java Interview Questions
+=============================
+1. Have you used any in memory databases ?
+2. How are you testing your application ?
+3. How are you writing your apache kafka testcases ?
+4. How are you managing logging in your application ? which version of log4j you use ?
+5. There was a log4j issue recently.. what was that ?
+6. How do you detect a deadlock in your code ?
+7. What are different ways to create a thread, and which one is better ?
+8. What is locking in terms of thread ?
+9. What is difference between sleep and wait ?
+10. Have you use executor framework ?
+11. How will you detect a memory leak in your application ?
+12. How does spring boot support the development of restful web services ?
+13. How are you implementing disaster recovery in your project ?
+14. How Service Discovery and Registration works ?
+15. How Client side load balancing different then the Server Side load balancing ?
+16. Is server side load balancing causes a single point of failure ?
+17. What is binary tree ?
+18. How are you writing database related testcases ? how will you mock those ?
+19. Do you have exprience with working with in memory databases ?
+20. Can you tell about mappings in hibernate ?
+21. Difference between Map and FlatMap ?
+22. Suppose there is password in the properties file, how can i hide those ?
+23. What are reasons for memory leak ?
+24. How does service communication happens in your application ?
+25. Have you setup kafka or it was setup by another person ?
+26. My producer is producing 100 records per second, but my consumer is consuming 20 record per second, So how will you handle this scenario ? In some case it will be full the queue and you will not be able to push the records in your queue ?
+27. Starvation vs Deadlock in Java Threads ?
+28. What are the ways to follow so that we dont run into deadlock situation ?
+29. I have class A(parent) and class B(child). In parent class I have a method called display(). In that class I am throwing NullPointerException. In child class, same method throwing exception. will this class compile or will throw run time exception.
+30. Why stream is faster than iterator ?
+31. What is use of service discovery or service registory ?
+32. What is reentrant lock ?
+33. What is typre erasure in generics ?
+34. What is functional interface and how it is related to lambda ?
+35. What is the default server provided by spring boot ?
+36. How to secure the rest apis ?
+37. What are views ? can we perform crud operations on views ?
+38. What is cartesian product ?
+39. What is outer join ?
+40. Difference between clustered and non-clustered indexes ?
+41. Explain about your project architecture ?
+42. How request mapping is done in AWS(from domain to IP address) ?
+43. Explain the woring functionality of kubernetes ?
+44. How do load balancer works ?
+45. What is Obfuscation(making jar not to decompile) and how to do it ?
+46. Being a senior developer, In which scenario, would you choose ORM(hibernate) vs directly jdbc connection ?
+47. Which are the new features of Java 17 ?
+48. In which cases would one go for interfaces with default method vs abstract classes with abstract methods. because both of them are providing similar functionalities
+49. In which scnarios have you written singleton class ?
+50. What is jwt token and what does it contain ?
+51. Difference between intermediate vs terminal methods in java 8 ?
+52. I have a entity called employee which has 50 variables. I can create several constructors with different parameters like 50, 15, 20. If I create an instance of employee I should be concious about position of paramter and type of variable. If any mistake is done, then data would be diff, how can i overcome this ? (builder design pattern is the solution)
+
+> Ravi:
+53. Suppose there is a restriction that we should not modify the class ? In this scenario which is suitable comparator or comparable ?
+54. Difference between Runnable vs Callable interface ?
+55. What is producer consumer problem and how to handle it ?
+56. What parameters you will verify during code reviews ?
+57. How have you implemented Spring security in your project ?
+58. What will happen if I only implement hashcode and not implement equals method ?
+59. What will happen if I only implement equals method and not implement hashcode method ?
+60. What if in hashcode method I return same hashcode everytime ?
+61. List & explain concurrent collections in java ?
+62. What is Webflux ?
+63. How will you modify an existing spring boot application to convert it into a serverless architecture
+64. Can you name the datastructure which you are using in your current project ?
+65. Can you tell me time complexity for common operations like insertion, deletion, retrieval in hashmap ?
+66. What is the difference between weak reference and soft reference and how they can be useful in managing collection of objects ?
+67. Can you tell me advanced use cases of Arraylist, LinkedList and Hashmap ?
+68. Can you explain what is the entry point in java ?
+69. Can we create an server in java application without using spring framework ?
+70. How does delegation model works in java classloaders ?
+71. Stack and heap memory difference  and what type of data is stored in these ?
+72. How do you implement multithreading in java ?
+73. Can we explain how you would use multithreading to improve performance in a data processing application ?
+74. Can you explain spring MVC architecture ?
+75. How do you handle form validation in Spring MVC ?
+76. How does RestController and RequestMapping annotations support in restful webservice development ?
+77. How do you handle session management and authentication in spring security ?
+78. How do you handle merge conflicts in git ?
+79. Significance of maven lifecycles and how do you use it in your project ?
+80. What is difference between mvn clean install and mvn clean package ?
+81. How mockito is used to create mocks in tests ?
+82. Difference between mock and spy in mockito ?
+83. Lets assume you are working on Notification microservice. It should send notification of different types, email, sms, app. For each notification type, there can be multiple variations, SMS we want to send from diff providers (Amazon, SNS, Gupshup or any other provider). Create a class diagram for the same, Draw all classes involved, follow all design patterns. make sure it is extensible, maintenable etc.
+84. Kafka, Have you worked on any stream topologies ?
+85. For reading data from kafka topic in spring boot what are you using ? r u using spring cloud stream?
+
+... will add more ...real interview questions... check weekly ...
+
+########################
+Message me on Instagram to get access to NEW interview preparation website.....
+########################
