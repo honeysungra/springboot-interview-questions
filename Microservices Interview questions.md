@@ -175,6 +175,7 @@ The  **SAGA pattern**  is designed for managing distributed transactions across 
 While generally discouraged due to complexity and performance issues, distributed transactions can be used in specific scenarios where strong consistency is required.
 
 -   **Two-Phase Commit (2PC)**: This protocol ensures that all participating services either commit or roll back changes together. However, it introduces latency and potential deadlocks.
+-   Example: In a banking application where transferring money involves both accounts (sender and receiver), 2PC can ensure that both account updates either succeed or fail together.
 -   **XA Protocols**: These are standards for implementing distributed transactions across multiple resource managers while maintaining ACID properties.
 
 ## **4. Compensation Mechanisms**
