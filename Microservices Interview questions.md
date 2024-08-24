@@ -151,6 +151,11 @@ In summary, while transitioning to a microservices architecture offers many bene
 The principle states that we must use abstraction (abstract classes and interfaces) 
 Ensuring data consistency in a microservices architecture is a complex challenge due to the decentralized nature of data management. Each microservice typically has its own database, which can lead to inconsistencies when multiple services need to interact with shared data. Here are several strategies and patterns that can be employed to maintain data consistency:
 
+1. Understanding Data Consistency Types
+
+Strong Consistency: This ensures that all reads return the most recent write, often requiring synchronous communication and distributed transactions.
+Eventual Consistency: This model allows temporary inconsistencies but guarantees that all replicas will converge to the same value eventually. It is more suitable for distributed systems as it prioritizes availability over immediate consistency.
+
 ## **1. Eventual Consistency**
 
 **Eventual consistency**  is a model where temporary inconsistencies are tolerated as long as the system guarantees that all changes will eventually propagate through the system. This approach is suitable for systems where immediate consistency is not critical.
