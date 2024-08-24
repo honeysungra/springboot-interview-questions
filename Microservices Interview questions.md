@@ -153,8 +153,8 @@ Ensuring data consistency in a microservices architecture is a complex challenge
 
 1. Understanding Data Consistency Types
 
-Strong Consistency: This ensures that all reads return the most recent write, often requiring synchronous communication and distributed transactions.
-Eventual Consistency: This model allows temporary inconsistencies but guarantees that all replicas will converge to the same value eventually. It is more suitable for distributed systems as it prioritizes availability over immediate consistency.
+**Strong Consistency:** This ensures that all reads return the most recent write, often requiring synchronous communication and distributed transactions.
+**Eventual Consistency:** This model allows temporary inconsistencies but guarantees that all replicas will converge to the same value eventually. It is more suitable for distributed systems as it prioritizes availability over immediate consistency.
 
 ## **1. Eventual Consistency**
 
