@@ -135,6 +135,10 @@ If there are multiple implementations for a single interface then we can use _@Q
 | Additional Annotation    | Often used with @ResponseBody for returning data            | Can be used alone for data return           |
 | Example              | @Controller public class MyController { ... }                | @RestController public class MyRestController { ... }        |
 
+![image](https://github.com/user-attachments/assets/4006a1e1-d1d4-4370-b52e-f10fd20cdcf1)
+
+
+
 In summary, `@Controller` is used for traditional web applications where views are rendered, while `@RestController` is used for building APIs where data is returned directly in a format like JSON or XML.
 
 ### @Lazy:
