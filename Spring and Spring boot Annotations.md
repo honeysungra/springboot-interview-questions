@@ -81,6 +81,7 @@ If there are multiple implementations for a single interface then we can use _@Q
  It is an alternative for `@Qualifier` annotation.
 
 ### @Bean:
+- The @Bean annotation is a method-level annotation in the Spring Framework that indicates that the annotated method produces a bean to be managed by the Spring container. This is part of Spring’s Inversion of Control (IoC) mechanism, which allows for dependency injection.
 - The `@Bean` annotation in Spring is used to explicitly declare a bean in the Spring application context.
 - It is commonly used in Java-based configuration to define beans that are not created by Spring through component scanning or auto-configuration.
 - The @Bean annotation is usually declared in the Configuration class to create Spring Bean definitions.
